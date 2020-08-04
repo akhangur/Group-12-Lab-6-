@@ -1,0 +1,167 @@
+<!doctype html>
+<title>Flexbox</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    #main {
+        display: flex;
+        flex: 1;
+    }
+    
+    #main>article {
+        flex: 1;
+    }
+    
+    #main>nav,
+    #main>aside {
+        flex: 0 0 20vw;
+        background: beige;
+    }
+    
+    #main>nav {
+        order: -1;
+    }
+    
+    footer {
+        background: yellowgreen;
+        height: 5vh;
+        text-align: center;
+    }
+    
+    header {
+        height: 21vh;
+        background: yellowgreen;
+    }
+    
+    header,
+    footer,
+    article,
+    nav,
+    aside {
+        padding: 1em;
+    }
+    
+    .i {
+        text-align: right;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 2vw;
+    }
+    
+    .j {
+        text-align: left;
+        font-size: 2vw;
+    }
+    
+    .column {
+        float: left;
+        width: 100%;
+        padding: 50px;
+        text-align: center;
+        font-size: 25px;
+        cursor: pointer;
+        color: white;
+    }
+</style>
+
+<body>
+    <header>
+        <div class=j>
+            Home<br> About Me
+            <br> Contact<br>
+        </div>
+        <div class="i"><b>This Page Was Designed Using Flexbox Property</b></div>
+    </header>
+    <div id="main">
+        <article>
+            <h1>Your Content Appears Here after you click on Labs Description</h1>
+        </article>
+        <nav>
+            <div class="row">
+                <div class="column" onclick="openTab('b1');" style="background:green;">
+                    Lab 1
+                </div>
+                <div class="column" onclick="openTab('b2');" style="background:blue;">
+                    Lab 2
+                </div>
+                <div class="column" onclick="openTab('b3');" style="background:red;">
+                    Lab 3
+                </div>
+                <div class="column" onclick="openTab('b1');" style="background:green;">
+                    Lab 4
+                </div>
+                <div class="column" onclick="openTab('b2');" style="background:blue;">
+                    Lab 5
+                </div>
+                <div class="column" onclick="openTab('b3');" style="background:red;">
+                    Lab 6
+                </div>
+                <div class="column" onclick="openTab('b3');" style="background:green;">
+                    Lab 7
+                </div>
+            </div>
+        </nav>
+        <div id="b1" class="containerTab" style="display:none;background:green">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Lab 1</h2>
+            <p>Git Hub Basics</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+
+        <div id="b2" class="containerTab" style="display:none;background:blue">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Lab 2</h2>
+            <p>HTML , CSS basics</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+
+        <div id="b3" class="containerTab" style="display:none;background:red">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Lab 3</h2>
+            <p>Javascript Basics</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+        <div id="b3" class="containerTab" style="display:none;background:red">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Lab 4</h2>
+            <p>Javascript</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+        <div id="b3" class="containerTab" style="display:none;background:red">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Lab 5</h2>
+            <p>CSS Footer</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+        <div id="b3" class="containerTab" style="display:none;background:red">
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+            <h2>Project 1</h2>
+            <p>All Topics At a glance</p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/EUvmCuPjHD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+        <aside><img src="a.jpg" alt="Aman" width=520px height=85%></aside>
+    </div>
+
+    <footer><a href="github.com/akhangur">Github Link</a></footer>
+    <script>
+        function openTab(tabName) {
+            var i, x;
+            x = document.getElementsByClassName("containerTab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
